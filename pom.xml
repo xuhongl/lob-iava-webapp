@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.vineet</groupId>
+	<artifactId>lob-java-webapp</artifactId>
+	<version>1.0.2</version>
+	<packaging>war</packaging>
+	<name>Sample Spring App</name>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.7.RELEASE</version>
+    </parent>
+
+    <distributionManagement>
+         <repository>
+           <id>github</id>
+           <name>GitHub Packages</name>
+           <url>https://maven.pkg.github.com/edp20/lob-java-webapp</url>
+          </repository>
+          <!--repository>
+              <id>nexus-releases</id>
+              <name>maven-releases</name>
+              <url>http://52.228.32.176:8081/repository/${env.NEXUS_REPO_PREFIX}-releases/</url>
+          </repository>
+          <snapshotRepository>
+              <id>nexus-snapshots</id>
+              <name>maven-snapshots</name>
+              <url>http://52.228.32.176:8081/repository/${env.NEXUS_REPO_PREFIX}-snapshots/</url>
+          </snapshotRepository-->
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>            
+    </dependencies>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <build>
+	<!--inalName>ROOT</finalName-->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
